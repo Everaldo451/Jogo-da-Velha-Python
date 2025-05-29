@@ -9,3 +9,14 @@ Projeto de desenvolvimento que permite, através de um executável, que duas pes
 ## Instalação
 
 1. Crie e ative seu ambiente virtual
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+2. Instale as dependências
+
+```bash
+pip install -r requirements.txt
+```
