@@ -1,1 +1,1 @@
-players = [None, None]
+players = []
