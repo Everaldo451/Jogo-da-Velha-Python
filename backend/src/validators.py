@@ -4,13 +4,12 @@ def validate_matches_file_path(matches_file_path: str):
     for valid_extension in constants.VALID_FILE_EXTENSIONS:
         if matches_file_path.endswith(valid_extension):
             return True
-
     return False
 
 
-def validate_match_result_identifier(game_result_identifier:str):
-    for valid_result in constants.VALID_GAME_RESULTS:
-        if game_result_identifier == valid_result:
-            return True
-    
-    return False
+def symbol_is_valid(symbol:str):
+    return symbol in constants.VALID_SYMBOLS
+
+
+def symbol_is_already_used(valid_symbol:str, remaining_symbols:list[str]):
+    return valid_symbol not in remaining_symbols
