@@ -10,12 +10,15 @@ def test_create_match():
     ]
     winner_index=0
     create_match(matches_file_path, players, winner_index)
+    create_match(matches_file_path, players)
 
     assert os.path.exists(matches_file_path)
 
     first_line = None
     with open(matches_file_path, "r") as matches_file:
         first_line = matches_file.readline().replace("\n","")
+        second_line = matches_file.readline().replace("\n","")
 
     os.remove(matches_file_path)
     assert first_line == f"{players[0][0]} {players[1][0]} {winner_index}"
+    assert second_line == f"{players[0][0]} {players[1][0]} -"
