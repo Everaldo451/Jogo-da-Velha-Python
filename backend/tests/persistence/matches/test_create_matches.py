@@ -8,9 +8,8 @@ def test_create_match():
         ["Everaldo","X"],
         ["Andrey","O"]
     ]
-    game_result_identifier = "V"
     winner_index=0
-    create_match(matches_file_path, players, game_result_identifier, winner_index)
+    create_match(matches_file_path, players, winner_index)
 
     assert os.path.exists(matches_file_path)
 
@@ -19,4 +18,4 @@ def test_create_match():
         first_line = matches_file.readline().replace("\n","")
 
     os.remove(matches_file_path)
-    assert first_line == f"{players[0][0]} {players[1][0]} {game_result_identifier} {winner_index}"
+    assert first_line == f"{players[0][0]} {players[1][0]} {winner_index}"
