@@ -1,2 +1,0 @@
-VALID_FILE_EXTENSIONS = [".csv"]
-VALID_SYMBOLS = ["X","O"]
