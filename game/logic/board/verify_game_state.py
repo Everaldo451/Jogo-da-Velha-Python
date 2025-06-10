@@ -20,6 +20,6 @@ def verify_victory(board:list[list]):
 
 
 def verify_empate(board:list[list]):
-    return all(row is not None for row in board for cell in row)
+    return all(cell is not None for row in board for cell in row)
 
 
