@@ -4,6 +4,8 @@ from helpers.matches import n_matches, show_latest_n_matches
 from helpers.players import create_players
 from helpers.board import make_move
 from logic.board.create_board import create_board
+from logic.board.verify_game_state import verify_victory, verify_empate
+from logic.persistence.matches.create import create_match
 import configs
 import random
 import os
@@ -27,6 +29,17 @@ def run():
             player_index = random.randint(0, 1)
             while True:
                 make_move(board, players[player_index])
+                if verify_victory():
+                    arquivo_partidas_caminho = os.path.join(configs.BASE_DIR, "data", "matches.csv")
+                    create_match(arquivo_partidas_caminho, players, player_index)
+                    #Exibir mensagem de vitoria
+                    break
+                elif verify_empate():
+                    arquivo_partidas_caminho = os.path.join(configs.BASE_DIR, "data", "matches.csv")
+                    create_match(arquivo_partidas_caminho, players)
+                    #Exibir mensagem de empate
+                    break
+                
                 player_index = (player_index-1)*-1
             continue
         elif opcao_selecionada==2:
