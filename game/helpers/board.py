@@ -21,4 +21,7 @@ def make_move(board:list[list], player:list[list]):
 
         update_cell(board, line, column, player[1])
         break
-    
+
+def show_board(board:list[list]):
+    #adicionar print do tabuleiro
+    pass
