@@ -28,18 +28,18 @@ def run():
             board = create_board()
             player_index = random.randint(0, 1)
             while True:
-                show_board()
+                show_board(board)
                 make_move(board, players[player_index])
-                if verify_victory():
+                if verify_victory(board):
                     arquivo_partidas_caminho = os.path.join(configs.BASE_DIR, "data", "matches.csv")
                     create_match(arquivo_partidas_caminho, players, player_index)
-                    show_board()
+                    show_board(board)
                     victory_message()
                     break
-                elif verify_empate():
+                elif verify_empate(board):
                     arquivo_partidas_caminho = os.path.join(configs.BASE_DIR, "data", "matches.csv")
                     create_match(arquivo_partidas_caminho, players)
-                    show_board()
+                    show_board(board)
                     empate_message()
                     break
                 
