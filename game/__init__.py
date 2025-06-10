@@ -1,8 +1,8 @@
 from helpers import add_game_path_to_sys, select_option
-from helpers.messagers import game_start, game_end
+from helpers.messagers import game_start, game_end, empate_message, victory_message
 from helpers.matches import n_matches, show_latest_n_matches
 from helpers.players import create_players
-from helpers.board import make_move
+from helpers.board import make_move, show_board
 from logic.board.create_board import create_board
 from logic.board.verify_game_state import verify_victory, verify_empate
 from logic.persistence.matches.create import create_match
@@ -28,16 +28,19 @@ def run():
             board = create_board()
             player_index = random.randint(0, 1)
             while True:
+                show_board()
                 make_move(board, players[player_index])
                 if verify_victory():
                     arquivo_partidas_caminho = os.path.join(configs.BASE_DIR, "data", "matches.csv")
                     create_match(arquivo_partidas_caminho, players, player_index)
-                    #Exibir mensagem de vitoria
+                    show_board()
+                    victory_message()
                     break
                 elif verify_empate():
                     arquivo_partidas_caminho = os.path.join(configs.BASE_DIR, "data", "matches.csv")
                     create_match(arquivo_partidas_caminho, players)
-                    #Exibir mensagem de empate
+                    show_board()
+                    empate_message()
                     break
                 
                 player_index = (player_index-1)*-1
