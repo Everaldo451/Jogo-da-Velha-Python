@@ -3,7 +3,7 @@ from logic.board.board_helpers import calculate_cell_line, calculate_cell_column
 
 def make_move(board: list[list], player: list[list]):
     while True:
-        move_index = input("Digite o número da célula para fazer sua jogada: ")
+        move_index = input(f"{player[0]}, digite o número da célula para fazer sua jogada: ")
         if not move_index.isdigit():
             print("Entrada inválida! Por favor, digite apenas dígitos numéricos.")
             continue
