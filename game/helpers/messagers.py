@@ -1,17 +1,17 @@
 def game_start():
-    #adicionar mensagem de inicio de jogo.
-    pass
+    print("Bem-vindo(a) ao Jogo da Velha!")
+    print("Prepare-se para a diversão!")
 
 def game_end():
-    #adicionar mensagem de fim de jogo.
-    pass
+    print("Obrigado por jogar!")
+    print("Até a próxima!")
 
 
 def victory_message():
-    #adicionar mensagem de vitoria
-    pass
+    print("Parabéns! Você venceu!")
+    print("Que jogada incrível!")
 
 
 def empate_message():
-    #adicionar mensagem de empate
-    pass
+    print("Que jogo emocionante!")
+    print("É um empate!")
