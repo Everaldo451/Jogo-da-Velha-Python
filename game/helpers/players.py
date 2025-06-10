@@ -1,5 +1,5 @@
-from logic.src.validators import symbol_is_valid, symbol_is_already_used
-from logic.src.players.create import create_player
+from logic.validators import symbol_is_valid, symbol_is_already_used
+from logic.players.create import create_player
 
 def create_players(players:list, symbols:list):
     while len(players) < 2:

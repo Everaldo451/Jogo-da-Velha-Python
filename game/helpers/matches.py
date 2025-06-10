@@ -1,4 +1,4 @@
-from logic.src.persistence.matches.read import read_latest_n_matches
+from logic.persistence.matches.read import read_latest_n_matches
 
 def n_matches():
     #Inserir mensagem para adquirir quantidade de partidas
