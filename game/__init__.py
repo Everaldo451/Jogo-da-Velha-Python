@@ -2,8 +2,9 @@ from helpers import add_game_path_to_sys, select_option
 from helpers.messagers import game_start, game_end
 from helpers.matches import n_matches, show_latest_n_matches
 from helpers.players import create_players
-from logic.src.board.create_board import create_board
-from logic import configs
+from helpers.board import make_move
+from logic.board.create_board import create_board
+import configs
 import random
 import os
 
@@ -20,8 +21,13 @@ def run():
             players = []
             symbols = ["X", "O"]
             create_players(players, symbols)
+            symbols = None
             print(players)
             board = create_board()
+            player_index = random.randint(0, 1)
+            while True:
+                make_move(board, players[player_index])
+                player_index = (player_index-1)*-1
             continue
         elif opcao_selecionada==2:
             quantidade_partidas = n_matches()
@@ -31,5 +37,3 @@ def run():
         elif opcao_selecionada==3:
             game_end()
             break
-
-run()
